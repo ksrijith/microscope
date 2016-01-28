@@ -11,7 +11,8 @@ Template.postSubmit.events({
 				return alert(error.reason);
 			if (result.postExists)
 				alert('This link has already been posted');
-			Router.go('postPage', {_id: result._id});
 		});
+
+		Router.go('postsList');
 	}
 });
