@@ -4,9 +4,9 @@ Template.errors.helpers({
 	}
 });
 
-Template.error.helpers({
-	message: function() {
-		var message = this.message;
-		return message;
-	}
+Template.error.onRendered(function() {
+	var error = this.data;
+	Meteor.setTimeout(function () {
+		Errors.remove(error._id);
+	}, 3000);
 });
