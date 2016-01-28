@@ -8,9 +8,9 @@ Template.postEdit.events({
 		}
 		Meteor.call('postUpdate', currentPostId, postProperties, function(error, result) {
 			if (error)
-				return alert(error.reason);
+				return throwError(error.reason);
 			if (result.urlChanged)
-				alert('The URL Cannot be changed!!!');
+				throwError('The URL Cannot be changed!!!');
 			else {
 				Router.go('postPage', {_id: currentPostId});
 			}
